@@ -17,17 +17,14 @@ Offcanvas is a sidebar component that can be toggled via JavaScript to appear fr
 
 **Heads up!** Given how CSS handles animations, you cannot use `margin` or `translate` on an `.offcanvas` element. Instead, use the class as an independent wrapping element.
 
-{{< callout info >}}
-{{< partial "callouts/info-prefersreducedmotion.md" >}}
-{{< /callout >}}
-
 ## Examples
 
 ### Offcanvas components
 
 Below is an offcanvas example that is shown by default (via `.show` on `.offcanvas`). Offcanvas includes support for a header with a close button and an optional body class for some initial `padding`. We suggest that you include offcanvas headers with dismiss actions whenever possible, or provide an explicit dismiss action.
 
-{{< example class="bd-example-offcanvas p-0 bg-body-tertiary overflow-hidden" >}}
+<div class="bd-example-offcanvas p-0 bg-body-tertiary overflow-hidden"><div class="bd-example-snippet bd-code-snippet p-1">
+
 <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
@@ -37,7 +34,7 @@ Below is an offcanvas example that is shown by default (via `.show` on `.offcanv
     Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
   </div>
 </div>
-{{< /example >}}
+</div></div>
 
 ### Live demo
 
@@ -48,12 +45,12 @@ Use the buttons below to show and hide an offcanvas element via JavaScript that 
 
 You can use a link with the `href` attribute, or a button with the `data-bs-target` attribute. In both cases, the `data-bs-toggle="offcanvas"` is required.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-  Link with href
+Link with href
 </a>
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-  Button with data-bs-target
+Button with data-bs-target
 </button>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -77,13 +74,13 @@ You can use a link with the `href` attribute, or a button with the `data-bs-targ
     </div>
   </div>
 </div>
-{{< /example >}}
+</div></div>
 
 ### Body scrolling
 
 Scrolling the `<body>` element is disabled when an offcanvas and its backdrop are visible. Use the `data-bs-scroll` attribute to enable `<body>` scrolling.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -95,13 +92,13 @@ Scrolling the `<body>` element is disabled when an offcanvas and its backdrop ar
     <p>Try scrolling the rest of the page to see this option in action.</p>
   </div>
 </div>
-{{< /example >}}
+</div></div>
 
 ### Body scrolling and backdrop
 
 You can also enable `<body>` scrolling with a visible backdrop.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -113,15 +110,15 @@ You can also enable `<body>` scrolling with a visible backdrop.
     <p>Try scrolling the rest of the page to see this option in action.</p>
   </div>
 </div>
-{{< /example >}}
+</div></div>
 
 ### Static backdrop
 
 When backdrop is set to static, the offcanvas will not close when clicking outside of it.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-  Toggle static offcanvas
+Toggle static offcanvas
 </button>
 
 <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
@@ -135,7 +132,7 @@ When backdrop is set to static, the offcanvas will not close when clicking outsi
     </div>
   </div>
 </div>
-{{< /example >}}
+</div></div>
 
 ## Dark offcanvas
 
@@ -143,11 +140,8 @@ When backdrop is set to static, the offcanvas will not close when clicking outsi
 
 Change the appearance of offcanvases with utilities to better match them to different contexts like dark navbars. Here we add `.text-bg-dark` to the `.offcanvas` and `.btn-close-white` to `.btn-close` for proper styling with a dark offcanvas. If you have dropdowns within, consider also adding `.dropdown-menu-dark` to `.dropdown-menu`.
 
-{{< callout warning >}}
-Heads up! Dark variants for components were deprecated in v5.3.0 with the introduction of color modes. Instead of manually adding classes mentioned above, set `data-bs-theme="dark"` on the root element, a parent wrapper, or the component itself.
-{{< /callout >}}
+<div class="bd-example-offcanvas p-0 bg-body-secondary overflow-hidden"><div class="bd-example-snippet bd-code-snippet p-1">
 
-{{< example class="bd-example-offcanvas p-0 bg-body-secondary overflow-hidden" >}}
 <div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasDarkLabel">Offcanvas</h5>
@@ -157,7 +151,7 @@ Heads up! Dark variants for components were deprecated in v5.3.0 with the introd
     <p>Place offcanvas content here.</p>
   </div>
 </div>
-{{< /example >}}
+</div></div>
 
 ## Responsive
 
@@ -165,7 +159,7 @@ Heads up! Dark variants for components were deprecated in v5.3.0 with the introd
 
 Responsive offcanvas classes hide content outside the viewport from a specified breakpoint and down. Above that breakpoint, the contents within will behave as usual. For example, `.offcanvas-lg` hides content in an offcanvas below the `lg` breakpoint, but shows the content above the `lg` breakpoint.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 <button class="btn btn-primary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Toggle offcanvas</button>
 
 <div class="alert alert-info d-none d-lg-block">Resize your browser to show the responsive offcanvas toggle.</div>
@@ -179,7 +173,7 @@ Responsive offcanvas classes hide content outside the viewport from a specified 
     <p class="mb-0">This is content within an <code>.offcanvas-lg</code>.</p>
   </div>
 </div>
-{{< /example >}}
+</div></div>
 
 Responsive offcanvas classes are available across for each breakpoint.
 
@@ -201,7 +195,7 @@ There's no default placement for offcanvas components, so you must add one of th
 
 Try the top, right, and bottom examples out below.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
 
 <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
@@ -213,9 +207,9 @@ Try the top, right, and bottom examples out below.
     ...
   </div>
 </div>
-{{< /example >}}
+</div></div>
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -227,9 +221,9 @@ Try the top, right, and bottom examples out below.
     ...
   </div>
 </div>
-{{< /example >}}
+</div></div>
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>
 
 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
@@ -241,7 +235,7 @@ Try the top, right, and bottom examples out below.
     ...
   </div>
 </div>
-{{< /example >}}
+</div></div>
 
 ## Accessibility
 
@@ -284,17 +278,15 @@ Add `data-bs-toggle="offcanvas"` and a `data-bs-target` or `href` to the element
 
 {{% js-dismiss "offcanvas" %}}
 
-{{< callout warning >}}
-While both ways to dismiss an offcanvas are supported, keep in mind that dismissing from outside an offcanvas does not match the [ARIA Authoring Practices Guide dialog (modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/). Do this at your own risk.
-{{< /callout >}}
-
 ### Via JavaScript
 
 Enable manually with:
 
 ```js
-const offcanvasElementList = document.querySelectorAll('.offcanvas')
-const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl))
+const offcanvasElementList = document.querySelectorAll(".offcanvas");
+const offcanvasList = [...offcanvasElementList].map(
+  (offcanvasEl) => new bootstrap.Offcanvas(offcanvasEl)
+);
 ```
 
 ### Options
@@ -313,23 +305,19 @@ const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap
 
 ### Methods
 
-{{< callout danger >}}
-{{< partial "callouts/danger-async-methods.md" >}}
-{{< /callout >}}
-
 Activates your content as an offcanvas element. Accepts an optional options `object`.
 
 You can create an offcanvas instance with the constructor, for example:
 
 ```js
-const bsOffcanvas = new bootstrap.Offcanvas('#myOffcanvas')
+const bsOffcanvas = new bootstrap.Offcanvas("#myOffcanvas");
 ```
 
 {{< bs-table "table" >}}
 | Method | Description |
 | --- | --- |
-| `getInstance` | *Static* method which allows you to get the offcanvas instance associated with a DOM element. |
-| `getOrCreateInstance` | *Static* method which allows you to get the offcanvas instance associated with a DOM element, or create a new one in case it wasn't initialized. |
+| `getInstance` | _Static_ method which allows you to get the offcanvas instance associated with a DOM element. |
+| `getOrCreateInstance` | _Static_ method which allows you to get the offcanvas instance associated with a DOM element, or create a new one in case it wasn't initialized. |
 | `hide` | Hides an offcanvas element. **Returns to the caller before the offcanvas element has actually been hidden** (i.e. before the `hidden.bs.offcanvas` event occurs). |
 | `show` | Shows an offcanvas element. **Returns to the caller before the offcanvas element has actually been shown** (i.e. before the `shown.bs.offcanvas` event occurs). |
 | `toggle` | Toggles an offcanvas element to shown or hidden. **Returns to the caller before the offcanvas element has actually been shown or hidden** (i.e. before the `shown.bs.offcanvas` or `hidden.bs.offcanvas` event occurs). |
@@ -350,8 +338,8 @@ Bootstrap's offcanvas class exposes a few events for hooking into offcanvas func
 {{< /bs-table >}}
 
 ```js
-const myOffcanvas = document.getElementById('myOffcanvas')
-myOffcanvas.addEventListener('hidden.bs.offcanvas', event => {
+const myOffcanvas = document.getElementById("myOffcanvas");
+myOffcanvas.addEventListener("hidden.bs.offcanvas", (event) => {
   // do something...
-})
+});
 ```

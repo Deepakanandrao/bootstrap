@@ -70,10 +70,6 @@ Bootstrap's `package.json` contains some additional metadata under the following
 - `sass` - path to Bootstrap's main [Sass](https://sass-lang.com/) source file
 - `style` - path to Bootstrap's non-minified CSS that's been compiled using the default settings (no customization)
 
-{{< callout info >}}
-{{< partial "callouts/info-npm-starter.md" >}}
-{{< /callout >}}
-
 ### yarn
 
 Install Bootstrap in your Node.js powered apps with [the yarn package](https://yarnpkg.com/en/package/bootstrap):

@@ -30,7 +30,6 @@ Bootstrap includes six default breakpoints, sometimes referred to as _grid tiers
 | Extra extra large | `xxl` | &ge;1400px |
 {{< /bs-table >}}
 
-
 Each breakpoint was chosen to comfortably hold containers whose widths are multiples of 12. Breakpoints are also representative of a subset of common device sizes and viewport dimensions—they don't specifically target every use case or device. Instead, the ranges provide a strong and consistent foundation to build on for nearly any device.
 
 These breakpoints are customizable via Sass—you'll find them in a Sass map in our `_variables.scss` stylesheet.
@@ -133,10 +132,6 @@ These mixins take those declared breakpoints, subtract `.02px` from them, and us
 // `xxl` applies to x-large devices (large desktops, less than 1400px)
 @media (max-width: 1399.98px) { ... }
 ```
-
-{{< callout warning >}}
-{{< partial "callouts/info-mediaqueries-breakpoints.md" >}}
-{{< /callout >}}
 
 ### Single breakpoint
 

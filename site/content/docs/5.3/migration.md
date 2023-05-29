@@ -107,7 +107,7 @@ Learn more by reading the new [color modes documentation]({{< docsref "/customiz
 
 - **Global support for light (default) and dark color modes.** Set color mode globally on the `:root` element, on groups of elements and components with a wrapper class, or directly on components, with `data-bs-theme="light|dark"`. Also included is a new `color-mode()` mixin that can output a ruleset with the `data-bs-theme` selector or a media query, depending on your preference.
 
-  <span class="badge text-warning-emphasis bg-warning-subtle">Deprecated</span> Color modes replace dark variants for components, so  `.btn-close-white`, `.carousel-dark`, `.dropdown-menu-dark`, and `.navbar-dark` are deprecated.
+  <span class="badge text-warning-emphasis bg-warning-subtle">Deprecated</span> Color modes replace dark variants for components, so `.btn-close-white`, `.carousel-dark`, `.dropdown-menu-dark`, and `.navbar-dark` are deprecated.
 
 - **New extended color system.** We've added new theme colors (but not in `$theme-colors`) for a more nuanced, system-wide color palette with new secondary, tertiary, and emphasis colors for `color` and `background-color`. These new colors are available as Sass variables, CSS variables, and utilities.
 
@@ -181,11 +181,26 @@ While we recommend adopting the new markup for improved compatibility with all s
 ```html
 <!-- Previous markup -->
 <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-label="Basic example" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+  <div
+    class="progress-bar"
+    role="progressbar"
+    aria-label="Basic example"
+    style="width: 25%"
+    aria-valuenow="25"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  ></div>
 </div>
 
 <!-- New markup -->
-<div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+<div
+  class="progress"
+  role="progressbar"
+  aria-label="Basic example"
+  aria-valuenow="25"
+  aria-valuemin="0"
+  aria-valuemax="100"
+>
   <div class="progress-bar" style="width: 25%"></div>
 </div>
 ```
@@ -195,20 +210,68 @@ We've also introduced a new `.progress-stacked` class to more logically wrap [mu
 ```html
 <!-- Previous markup -->
 <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-label="Segment one" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-success" role="progressbar" aria-label="Segment two" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-info" role="progressbar" aria-label="Segment three" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+  <div
+    class="progress-bar"
+    role="progressbar"
+    aria-label="Segment one"
+    style="width: 15%"
+    aria-valuenow="15"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  ></div>
+  <div
+    class="progress-bar bg-success"
+    role="progressbar"
+    aria-label="Segment two"
+    style="width: 30%"
+    aria-valuenow="30"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  ></div>
+  <div
+    class="progress-bar bg-info"
+    role="progressbar"
+    aria-label="Segment three"
+    style="width: 20%"
+    aria-valuenow="20"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  ></div>
 </div>
 
 <!-- New markup -->
 <div class="progress-stacked">
-  <div class="progress" role="progressbar" aria-label="Segment one" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+  <div
+    class="progress"
+    role="progressbar"
+    aria-label="Segment one"
+    aria-valuenow="15"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    style="width: 15%"
+  >
     <div class="progress-bar"></div>
   </div>
-  <div class="progress" role="progressbar" aria-label="Segment two" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+  <div
+    class="progress"
+    role="progressbar"
+    aria-label="Segment two"
+    aria-valuenow="30"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    style="width: 30%"
+  >
     <div class="progress-bar bg-success"></div>
   </div>
-  <div class="progress" role="progressbar" aria-label="Segment three" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+  <div
+    class="progress"
+    role="progressbar"
+    aria-label="Segment three"
+    aria-valuenow="20"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    style="width: 20%"
+  >
     <div class="progress-bar bg-info"></div>
   </div>
 </div>
@@ -351,10 +414,6 @@ Want more information? [Read the v5.1.0 blog post.](https://blog.getbootstrap.co
 
 <hr class="my-5">
 
-{{< callout info >}}
-**Hey there!** Changes to our first major release of Bootstrap 5, v5.0.0, are documented below. They don't reflect the additional changes shown above.
-{{< /callout >}}
-
 ## Dependencies
 
 - Dropped jQuery.
@@ -390,10 +449,12 @@ Want more information? [Read the v5.1.0 blog post.](https://blog.getbootstrap.co
 - We've ditched the default Sass map merges to make it easier to remove redundant values. Keep in mind you now have to define all values in the Sass maps like `$theme-colors`. Check out how to deal with [Sass maps]({{< docsref "/customize/sass#maps-and-loops" >}}).
 
 - <span class="badge bg-danger">Breaking</span> Renamed `color-yiq()` function and related variables to `color-contrast()` as it's no longer related to YIQ color space. [See #30168.](https://github.com/twbs/bootstrap/pull/30168/)
+
   - `$yiq-contrasted-threshold` is renamed to `$min-contrast-ratio`.
   - `$yiq-text-dark` and `$yiq-text-light` are respectively renamed to `$color-contrast-dark` and `$color-contrast-light`.
 
 - <span class="badge bg-danger">Breaking</span> Media query mixins parameters have changed for a more logical approach.
+
   - `media-breakpoint-down()` uses the breakpoint itself instead of the next breakpoint (e.g., `media-breakpoint-down(lg)` instead of `media-breakpoint-down(md)` targets viewports smaller than `lg`).
   - Similarly, the second parameter in `media-breakpoint-between()` also uses the breakpoint itself instead of the next breakpoint (e.g., `media-between(sm, lg)` instead of `media-breakpoint-between(sm, md)` targets viewports between `sm` and `lg`).
 
@@ -408,6 +469,7 @@ Want more information? [Read the v5.1.0 blog post.](https://blog.getbootstrap.co
 - <span class="badge bg-danger">Breaking</span> Removed the `bg-gradient-variant()` mixin. Use the `.bg-gradient` class to add gradients to elements instead of the generated `.bg-gradient-*` classes.
 
 - <span class="badge bg-danger">Breaking</span> **Removed previously deprecated mixins:**
+
   - `hover`, `hover-focus`, `plain-hover-focus`, and `hover-focus-active`
   - `float()`
   - `form-control-mixin()`
@@ -438,6 +500,7 @@ Want more information? [Read the v5.1.0 blog post.](https://blog.getbootstrap.co
 - **New breakpoint!** Added new `xxl` breakpoint for `1400px` and up. No changes to all other breakpoints.
 
 - **Improved gutters.** Gutters are now set in rems, and are narrower than v4 (`1.5rem`, or about `24px`, down from `30px`). This aligns our grid system's gutters with our spacing utilities.
+
   - Added new [gutter class]({{< docsref "/layout/gutters" >}}) (`.g-*`, `.gx-*`, and `.gy-*`) to control horizontal/vertical gutters, horizontal gutters, and vertical gutters.
   - <span class="badge bg-danger">Breaking</span> Renamed `.no-gutters` to `.g-0` to match new gutter utilities.
 
@@ -494,6 +557,7 @@ Want more information? [Read the v5.1.0 blog post.](https://blog.getbootstrap.co
 - **Added new floating forms!** We've promoted the Floating labels example to fully supported form components. [See the new Floating labels page.]({{< docsref "/forms/floating-labels" >}})
 
 - <span class="badge bg-danger">Breaking</span> **Consolidated native and custom form elements.** Checkboxes, radios, selects, and other inputs that had native and custom classes in v4 have been consolidated. Now nearly all our form elements are entirely custom, most without the need for custom HTML.
+
   - `.custom-control.custom-checkbox` is now `.form-check`.
   - `.custom-control.custom-custom-radio` is now `.form-check`.
   - `.custom-control.custom-switch` is now `.form-check.form-switch`.
@@ -664,6 +728,7 @@ Want more information? [Read the v5.1.0 blog post.](https://blog.getbootstrap.co
 ## Utilities
 
 - <span class="badge bg-danger">Breaking</span> Renamed several utilities to use logical property names instead of directional names with the addition of RTL support:
+
   - Renamed `.left-*` and `.right-*` to `.start-*` and `.end-*`.
   - Renamed `.float-left` and `.float-right` to `.float-start` and `.float-end`.
   - Renamed `.border-left` and `.border-right` to `.border-start` and `.border-end`.
@@ -705,12 +770,14 @@ Want more information? [Read the v5.1.0 blog post.](https://blog.getbootstrap.co
 ## Helpers
 
 - <span class="badge bg-danger">Breaking</span> **Responsive embed helpers have been renamed to [ratio helpers]({{< docsref "/helpers/ratio" >}})** with new class names and improved behaviors, as well as a helpful CSS variable.
+
   - Classes have been renamed to change `by` to `x` in the aspect ratio. For example, `.ratio-16by9` is now `.ratio-16x9`.
   - We've dropped the `.embed-responsive-item` and element group selector in favor of a simpler `.ratio > *` selector. No more class is needed, and the ratio helper now works with any HTML element.
   - The `$embed-responsive-aspect-ratios` Sass map has been renamed to `$aspect-ratios` and its values have been simplified to include the class name and the percentage as the `key: value` pair.
   - CSS variables are now generated and included for each value in the Sass map. Modify the `--bs-aspect-ratio` variable on the `.ratio` to create any [custom aspect ratio]({{< docsref "/helpers/ratio#custom-ratios" >}}).
 
 - <span class="badge bg-danger">Breaking</span> **"Screen reader" classes are now ["visually hidden" classes]({{< docsref "/helpers/visually-hidden" >}}).**
+
   - Changed the Sass file from `scss/helpers/_screenreaders.scss` to `scss/helpers/_visually-hidden.scss`
   - Renamed `.sr-only` and `.sr-only-focusable` to `.visually-hidden` and `.visually-hidden-focusable`
   - Renamed `sr-only()` and `sr-only-focusable()` mixins to `visually-hidden()` and `visually-hidden-focusable()`.
@@ -726,8 +793,8 @@ Want more information? [Read the v5.1.0 blog post.](https://blog.getbootstrap.co
 - **All plugins can now accept a CSS selector as the first argument.** You can either pass a DOM element or any valid CSS selector to create a new instance of the plugin:
 
   ```js
-  const modal = new bootstrap.Modal('#myModal')
-  const dropdown = new bootstrap.Dropdown('[data-bs-toggle="dropdown"]')
+  const modal = new bootstrap.Modal("#myModal");
+  const dropdown = new bootstrap.Dropdown('[data-bs-toggle="dropdown"]');
   ```
 
 - `popperConfig` can be passed as a function that accepts the Bootstrap's default Popper config as an argument, so that you can merge this default configuration in your way. **Applies to dropdowns, popovers, and tooltips.**

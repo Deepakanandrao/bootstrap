@@ -14,10 +14,6 @@ Bootstrap's color palette has continued to expand and become more nuanced in v5.
 
 Colors ending in `-rgb` provide the `red, green, blue` values for use in `rgb()` and `rgba()` color modes. For example, `rgba(var(--bs-secondary-bg-rgb), .5)`.
 
-{{< callout warning>}}
-**Heads up!** There's some potential confusion with our new secondary and tertiary colors, and our existing secondary theme color, as well as our light and dark theme colors. Expect this to be ironed out in v6.
-{{< /callout >}}
-
 <table class="table table-swatches">
   <thead>
     <tr>
@@ -359,6 +355,7 @@ Colors ending in `-rgb` provide the `red, green, blue` values for use in `rgb()`
 These new colors are accessible via CSS variables and utility classes—like `--bs-primary-bg-subtle` and `.bg-primary-subtle`—allowing you to compose your own CSS rules with the variables, or to quickly apply styles via classes. The utilities are built with the color's associated CSS variables, and since we customize those CSS variables for dark mode, they are also adaptive to color mode by default.
 
 {{< example >}}
+
 <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
   Example element with utilities
 </div>
@@ -456,7 +453,9 @@ Add, remove, or modify values within the map to update how they're used in many 
 Here's how you can use these in your Sass:
 
 ```scss
-.alpha { color: $purple; }
+.alpha {
+  color: $purple;
+}
 .beta {
   color: $yellow-300;
   background-color: $indigo-900;
@@ -485,22 +484,28 @@ Here's an example that generates text color utilities (e.g., `.text-purple-500`)
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
-$all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+$all-colors: map-merge-multiple(
+  $blues,
+  $indigos,
+  $purples,
+  $pinks,
+  $reds,
+  $oranges,
+  $yellows,
+  $greens,
+  $teals,
+  $cyans
+);
 
 $utilities: map-merge(
   $utilities,
   (
     "color": map-merge(
-      map-get($utilities, "color"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "color"), "values"),
-          (
-            $all-colors
-          ),
-        ),
+        map-get($utilities, "color"),
+        (
+          values: map-merge(map-get(map-get($utilities, "color"), "values"), ($all-colors)),
+        )
       ),
-    ),
   )
 );
 

@@ -10,22 +10,18 @@ toc: true
 
 Assign responsive-friendly `margin` or `padding` values to an element or a subset of its sides with shorthand classes. Includes support for individual properties, all properties, and vertical and horizontal properties. Classes are built from a default Sass map ranging from `.25rem` to `3rem`.
 
-{{< callout >}}
-**Using the CSS Grid layout module?** Consider using [the gap utility](#gap) instead.
-{{< /callout >}}
-
 ### Notation
 
 Spacing utilities that apply to all breakpoints, from `xs` to `xxl`, have no breakpoint abbreviation in them. This is because those classes are applied from `min-width: 0` and up, and thus are not bound by a media query. The remaining breakpoints, however, do include a breakpoint abbreviation.
 
 The classes are named using the format `{property}{sides}-{size}` for `xs` and `{property}{sides}-{breakpoint}-{size}` for `sm`, `md`, `lg`, `xl`, and `xxl`.
 
-Where *property* is one of:
+Where _property_ is one of:
 
 - `m` - for classes that set `margin`
 - `p` - for classes that set `padding`
 
-Where *sides* is one of:
+Where _sides_ is one of:
 
 - `t` - for classes that set `margin-top` or `padding-top`
 - `b` - for classes that set `margin-bottom` or `padding-bottom`
@@ -35,7 +31,7 @@ Where *sides* is one of:
 - `y` - for classes that set both `*-top` and `*-bottom`
 - blank - for classes that set a `margin` or `padding` on all 4 sides of the element
 
-Where *size* is one of:
+Where _size_ is one of:
 
 - `0` - for classes that eliminate the `margin` or `padding` by setting it to `0`
 - `1` - (by default) for classes that set the `margin` or `padding` to `$spacer * .25`
@@ -57,12 +53,12 @@ Here are some representative examples of these classes:
 }
 
 .ms-1 {
-  margin-left: ($spacer * .25) !important;
+  margin-left: ($spacer * 0.25) !important;
 }
 
 .px-2 {
-  padding-left: ($spacer * .5) !important;
-  padding-right: ($spacer * .5) !important;
+  padding-left: ($spacer * 0.5) !important;
+  padding-right: ($spacer * 0.5) !important;
 }
 
 .p-3 {
@@ -81,9 +77,7 @@ Additionally, Bootstrap also includes an `.mx-auto` class for horizontally cente
 </div>
 
 ```html
-<div class="mx-auto p-2" style="width: 200px;">
-  Centered element
-</div>
+<div class="mx-auto p-2" style="width: 200px;">Centered element</div>
 ```
 
 ## Negative margin
@@ -103,6 +97,7 @@ The syntax is nearly the same as the default, positive margin utilities, but wit
 When using `display: grid` or `display: flex`, you can make use of `gap` utilities on the parent element. This can save on having to add margin utilities to individual children of a grid or flex container. Gap utilities are responsive by default, and are generated via our utilities API, based on the `$spacers` Sass map.
 
 {{< example class="bd-example-cssgrid" >}}
+
 <div class="grid gap-3">
   <div class="p-2 g-col-6">Grid item 1</div>
   <div class="p-2 g-col-6">Grid item 2</div>
@@ -118,6 +113,7 @@ Support includes responsive options for all of Bootstrap's grid breakpoints, as 
 `row-gap` sets the vertical space between children items in the specified container.
 
 {{< example class="bd-example-cssgrid" >}}
+
 <div class="grid gap-0 row-gap-3">
   <div class="p-2 g-col-6">Grid item 1</div>
   <div class="p-2 g-col-6">Grid item 2</div>
@@ -131,6 +127,7 @@ Support includes responsive options for all of Bootstrap's grid breakpoints, as 
 `column-gap` sets the horizontal space between children items in the specified container.
 
 {{< example class="bd-example-cssgrid" >}}
+
 <div class="grid gap-0 column-gap-3">
   <div class="p-2 g-col-6">Grid item 1</div>
   <div class="p-2 g-col-6">Grid item 2</div>

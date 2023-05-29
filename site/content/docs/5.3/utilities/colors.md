@@ -6,21 +6,14 @@ group: utilities
 toc: true
 ---
 
-{{< callout info >}}
-{{< partial "callouts/warning-color-assistive-technologies.md" >}}
-{{< /callout >}}
-
 ## Colors
 
 Colorize text with color utilities. If you want to colorize links, you can use the [`.link-*` helper classes]({{< docsref "/helpers/colored-links" >}}) which have `:hover` and `:focus` states.
 
-{{< callout info >}}
-Color utilities like `.text-*` that generated from our original `$theme-colors` Sass map don't yet respond to color modes, however, any `.text-*-emphasis` utility will. This will be resolved in v6.
-{{< /callout >}}
-
 {{< example >}}
 {{< colors.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
+
 <p class="text-{{ .name }}{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-{{ .name }}</p>
 <p class="text-{{ .name }}-emphasis">.text-{{ .name }}-emphasis</p>
 {{- end -}}
@@ -36,14 +29,6 @@ Color utilities like `.text-*` that generated from our original `$theme-colors` 
 <p class="text-black-50 bg-white">.text-black-50</p>
 <p class="text-white-50 bg-dark">.text-white-50</p>
 {{< /example >}}
-
-{{< callout warning >}}
-**Deprecation:** With the addition of `.text-opacity-*` utilities and CSS variables for text utilities, `.text-black-50` and `.text-white-50` are deprecated as of v5.1.0. They'll be removed in v6.0.0.
-{{< /callout >}}
-
-{{< callout warning >}}
-**Deprecation:** With the addition of the expanded theme colors and variables, the `.text-muted` utility has been deprecated as of v5.3.0. Its default value has also been reassigned to the new `--bs-secondary-color` CSS variable to better support color modes. It will be removed in v6.0.0.
-{{< /callout >}}
 
 ## Opacity
 
@@ -69,6 +54,7 @@ We use an RGB version of our `--bs-primary` (with the value of `13, 110, 253`) C
 To change that opacity, override `--bs-text-opacity` via custom styles or inline styles.
 
 {{< example >}}
+
 <div class="text-primary">This is default primary text</div>
 <div class="text-primary" style="--bs-text-opacity: .5;">This is 50% opacity primary text</div>
 {{< /example >}}
@@ -76,6 +62,7 @@ To change that opacity, override `--bs-text-opacity` via custom styles or inline
 Or, choose from any of the `.text-opacity` utilities:
 
 {{< example >}}
+
 <div class="text-primary">This is default primary text</div>
 <div class="text-primary text-opacity-75">This is 75% opacity primary text</div>
 <div class="text-primary text-opacity-50">This is 50% opacity primary text</div>

@@ -12,7 +12,8 @@ We use a large block of connected links for our pagination, making links hard to
 
 In addition, as pages likely have more than one such navigation section, it's advisable to provide a descriptive `aria-label` for the `<nav>` to reflect its purpose. For example, if the pagination component is used to navigate between a set of search results, an appropriate label could be `aria-label="Search results pages"`.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
+
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -22,13 +23,14 @@ In addition, as pages likely have more than one such navigation section, it's ad
     <li class="page-item"><a class="page-link" href="#">Next</a></li>
   </ul>
 </nav>
-{{< /example >}}
+</div></div>
 
 ## Working with icons
 
 Looking to use an icon or symbol in place of text for some pagination links? Be sure to provide proper screen reader support with `aria` attributes.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
+
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <li class="page-item">
@@ -46,7 +48,7 @@ Looking to use an icon or symbol in place of text for some pagination links? Be 
     </li>
   </ul>
 </nav>
-{{< /example >}}
+</div></div>
 
 ## Disabled and active states
 
@@ -54,7 +56,8 @@ Pagination links are customizable for different circumstances. Use `.disabled` f
 
 While the `.disabled` class uses `pointer-events: none` to _try_ to disable the link functionality of `<a>`s, that CSS property is not yet standardized and doesn't account for keyboard navigation. As such, you should always add `tabindex="-1"` on disabled links and use custom JavaScript to fully disable their functionality.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
+
 <nav aria-label="...">
   <ul class="pagination">
     <li class="page-item disabled">
@@ -70,11 +73,12 @@ While the `.disabled` class uses `pointer-events: none` to _try_ to disable the 
     </li>
   </ul>
 </nav>
-{{< /example >}}
+</div></div>
 
 You can optionally swap out active or disabled anchors for `<span>`, or omit the anchor in the case of the prev/next arrows, to remove click functionality and prevent keyboard focus while retaining intended styles.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
+
 <nav aria-label="...">
   <ul class="pagination">
     <li class="page-item disabled">
@@ -90,13 +94,14 @@ You can optionally swap out active or disabled anchors for `<span>`, or omit the
     </li>
   </ul>
 </nav>
-{{< /example >}}
+</div></div>
 
 ## Sizing
 
 Fancy larger or smaller pagination? Add `.pagination-lg` or `.pagination-sm` for additional sizes.
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
+
 <nav aria-label="...">
   <ul class="pagination pagination-lg">
     <li class="page-item active" aria-current="page">
@@ -106,9 +111,10 @@ Fancy larger or smaller pagination? Add `.pagination-lg` or `.pagination-sm` for
     <li class="page-item"><a class="page-link" href="#">3</a></li>
   </ul>
 </nav>
-{{< /example >}}
+</div></div>
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
+
 <nav aria-label="...">
   <ul class="pagination pagination-sm">
     <li class="page-item active" aria-current="page">
@@ -118,13 +124,14 @@ Fancy larger or smaller pagination? Add `.pagination-lg` or `.pagination-sm` for
     <li class="page-item"><a class="page-link" href="#">3</a></li>
   </ul>
 </nav>
-{{< /example >}}
+</div></div>
 
 ## Alignment
 
 Change the alignment of pagination components with [flexbox utilities]({{< docsref "/utilities/flex" >}}). For example, with `.justify-content-center`:
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
+
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item disabled">
@@ -138,11 +145,12 @@ Change the alignment of pagination components with [flexbox utilities]({{< docsr
     </li>
   </ul>
 </nav>
-{{< /example >}}
+</div></div>
 
 Or with `.justify-content-end`:
 
-{{< example >}}
+<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
+
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-end">
     <li class="page-item disabled">
@@ -156,7 +164,7 @@ Or with `.justify-content-end`:
     </li>
   </ul>
 </nav>
-{{< /example >}}
+</div></div>
 
 ## CSS
 

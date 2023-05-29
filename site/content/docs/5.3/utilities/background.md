@@ -6,21 +6,14 @@ group: utilities
 toc: true
 ---
 
-{{< callout info >}}
-{{< partial "callouts/warning-color-assistive-technologies.md" >}}
-{{< /callout >}}
-
 ## Background color
 
 Similar to the contextual text color classes, set the background of an element to any contextual class. Background utilities **do not set `color`**, so in some cases you'll want to use `.text-*` [color utilities]({{< docsref "/utilities/colors" >}}).
 
-{{< callout info >}}
-Background utilities like `.bg-*` that generated from our original `$theme-colors` Sass map don't yet respond to color modes, however, any `.bg-*-subtle` utility will. This will be resolved in v6.
-{{< /callout >}}
-
 {{< example >}}
 {{< colors.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
+
 <div class="p-3 mb-2 bg-{{ .name }}{{ if .contrast_color }} text-{{ .contrast_color }}{{ else }} text-white{{ end }}">.bg-{{ .name }}</div>
 <div class="p-3 mb-2 bg-{{ .name }}-subtle text-emphasis-{{ .name }}">.bg-{{ .name }}-subtle</div>
 {{- end -}}
@@ -43,6 +36,7 @@ Do you need a gradient in your custom CSS? Just add `background-image: var(--bs-
 {{< markdown >}}
 {{< colors.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
+
 <div class="p-3 mb-2 bg-{{ .name }} bg-gradient{{ with .contrast_color }} text-{{ . }}{{ else }} text-white{{ end }}">.bg-{{ .name }}.bg-gradient</div>
 {{- end -}}
 {{< /colors.inline >}}
@@ -62,7 +56,10 @@ Consider our default `.bg-success` utility.
 ```css
 .bg-success {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(
+    var(--bs-success-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
 }
 ```
 
@@ -73,6 +70,7 @@ We use an RGB version of our `--bs-success` (with the value of `25, 135, 84`) CS
 To change that opacity, override `--bs-bg-opacity` via custom styles or inline styles.
 
 {{< example >}}
+
 <div class="bg-success p-2 text-white">This is default success background</div>
 <div class="bg-success p-2" style="--bs-bg-opacity: .5;">This is 50% opacity success background</div>
 {{< /example >}}
@@ -80,6 +78,7 @@ To change that opacity, override `--bs-bg-opacity` via custom styles or inline s
 Or, choose from any of the `.bg-opacity` utilities:
 
 {{< example >}}
+
 <div class="bg-success p-2 text-white">This is default success background</div>
 <div class="bg-success p-2 text-white bg-opacity-75">This is 75% opacity success background</div>
 <div class="bg-success p-2 text-dark bg-opacity-50">This is 50% opacity success background</div>

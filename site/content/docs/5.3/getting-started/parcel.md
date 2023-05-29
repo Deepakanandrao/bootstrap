@@ -9,10 +9,6 @@ thumbnail: guides/bootstrap-parcel@2x.png
 
 <img class="mb-4 img-fluid rounded-3" srcset="/docs/{{< param docs_version >}}/assets/img/guides/bootstrap-parcel.png, /docs/{{< param docs_version >}}/assets/img/guides/bootstrap-parcel@2x.png 2x" src="/docs/{{< param docs_version >}}/assets/img/guides/bootstrap-parcel.png" width="2000" height="1000" alt="">
 
-{{< callout >}}
-**Want to skip to the end?** Download the source code and working demo for this guide from the [twbs/examples repository](https://github.com/twbs/examples/tree/main/parcel). You can also [open the example in StackBlitz](https://stackblitz.com/github/twbs/examples/tree/main/parcel?file=index.html) but not run it because Parcel isn't currently supported there.
-{{< /callout >}}
-
 ## Setup
 
 We're building a Parcel project with Bootstrap from scratch, so there are some prerequisites and up front steps before we can really get started. This guide requires you to have Node.js installed and some familiarity with the terminal.
@@ -70,13 +66,13 @@ With dependencies installed and our project folder ready for us to start coding,
 1. **Fill in the `src/index.html` file.** Parcel needs a page to render, so we use our `index.html` page to set up some basic HTML, including our CSS and JavaScript files.
 
    ```html
-   <!doctype html>
+   <!DOCTYPE html>
    <html lang="en">
      <head>
-       <meta charset="utf-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <meta charset="utf-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1" />
        <title>Bootstrap w/ Parcel</title>
-       <link rel="stylesheet" href="scss/styles.scss">
+       <link rel="stylesheet" href="scss/styles.scss" />
        <script type="module" src="js/main.js"></script>
      </head>
      <body>
@@ -96,12 +92,12 @@ With dependencies installed and our project folder ready for us to start coding,
 
    ```json
    {
-      // ...
-      "scripts": {
-        "start": "parcel serve src/index.html --public-url / --dist-dir dist",
-        "test": "echo \"Error: no test specified\" && exit 1"
-      },
-      // ...
+     // ...
+     "scripts": {
+       "start": "parcel serve src/index.html --public-url / --dist-dir dist",
+       "test": "echo \"Error: no test specified\" && exit 1"
+     }
+     // ...
    }
    ```
 
@@ -126,27 +122,29 @@ Importing Bootstrap into Parcel requires two imports, one into our `styles.scss`
    @import "bootstrap/scss/bootstrap";
    ```
 
-   *You can also import our stylesheets individually if you want. [Read our Sass import docs]({{< docsref "/customize/sass#importing" >}}) for details.*
+   _You can also import our stylesheets individually if you want. [Read our Sass import docs]({{< docsref "/customize/sass#importing" >}}) for details._
 
 2. **Import Bootstrap's JS.** Add the following to `src/js/main.js` to import all of Bootstrap's JS. Popper will be imported automatically through Bootstrap.
 
    <!-- eslint-skip -->
+
    ```js
    // Import all of Bootstrap's JS
-   import * as bootstrap from 'bootstrap'
+   import * as bootstrap from "bootstrap";
    ```
 
    You can also import JavaScript plugins individually as needed to keep bundle sizes down:
 
    <!-- eslint-skip -->
+
    ```js
-   import Alert from 'bootstrap/js/dist/alert'
+   import Alert from "bootstrap/js/dist/alert";
 
    // or, specify which plugins you need:
-   import { Tooltip, Toast, Popover } from 'bootstrap'
+   import { Tooltip, Toast, Popover } from "bootstrap";
    ```
 
-   *[Read our JavaScript docs]({{< docsref "/getting-started/javascript/" >}}) for more information on how to use Bootstrap's plugins.*
+   _[Read our JavaScript docs]({{< docsref "/getting-started/javascript/" >}}) for more information on how to use Bootstrap's plugins._
 
 3. **And you're done! 🎉** With Bootstrap's source Sass and JS fully loaded, your local development server should now look like this.
 

@@ -18,10 +18,6 @@ Using the most basic table markup, here's how `.table`-based tables look in Boot
 
 Use contextual classes to color tables, table rows or individual cells.
 
-{{< callout info >}}
-**Heads up!** Because of the more complicated CSS used to generate our table variants, they most likely won't see color mode adaptive styling until v6.
-{{< /callout >}}
-
 <div class="bd-example">
   <table class="table">
     <thead>
@@ -51,14 +47,19 @@ Use contextual classes to color tables, table rows or individual cells.
 </div>
 
 {{< highlight html >}}
+
 <!-- On tables -->{{< table.inline >}}
+
 {{- range (index $.Site.Data "theme-colors") }}
+
 <table class="table-{{ .name }}">...</table>
 {{- end -}}
 {{< /table.inline >}}
 
 <!-- On rows -->{{< table.inline >}}
+
 {{- range (index $.Site.Data "theme-colors") }}
+
 <tr class="table-{{ .name }}">...</tr>
 {{- end -}}
 {{< /table.inline >}}
@@ -71,10 +72,6 @@ Use contextual classes to color tables, table rows or individual cells.
 {{< /table.inline >}}
 </tr>
 {{< /highlight >}}
-
-{{< callout info >}}
-{{< partial "callouts/warning-color-assistive-technologies.md" >}}
-{{< /callout >}}
 
 ## Accented tables
 
@@ -269,6 +266,7 @@ Add `.table-sm` to make any `.table` more compact by cutting all cell `padding` 
 Add a thicker border, darker between table groups—`<thead>`, `<tbody>`, and `<tfoot>`—with `.table-group-divider`. Customize the color by changing the `border-top-color` (which we don't currently provide a utility class for at this time).
 
 {{< example >}}
+
 <table class="table">
   <thead>
     <tr>
@@ -615,7 +613,9 @@ A `<caption>` functions like a heading for a table. It helps users with screen r
 
 ```html
 <table class="table table-sm">
-  <caption>List of users</caption>
+  <caption>
+    List of users
+  </caption>
   <thead>
     ...
   </thead>
@@ -628,6 +628,7 @@ A `<caption>` functions like a heading for a table. It helps users with screen r
 You can also put the `<caption>` on the top of the table with `.caption-top`.
 
 {{< example >}}
+
 <table class="table caption-top">
   <caption>List of users</caption>
   <thead>
@@ -664,12 +665,6 @@ You can also put the `<caption>` on the top of the table with `.caption-top`.
 ## Responsive tables
 
 Responsive tables allow tables to be scrolled horizontally with ease. Make any table responsive across all viewports by wrapping a `.table` with `.table-responsive`. Or, pick a maximum breakpoint with which to have a responsive table up to by using `.table-responsive{-sm|-md|-lg|-xl|-xxl}`.
-
-{{< callout warning >}}
-##### Vertical clipping/truncation
-
-Responsive tables make use of `overflow-y: hidden`, which clips off any content that goes beyond the bottom or top edges of the table. In particular, this can clip off dropdown menus and other third-party widgets.
-{{< /callout >}}
 
 ### Always responsive
 
@@ -751,6 +746,7 @@ Use `.table-responsive{-sm|-md|-lg|-xl|-xxl}` as needed to create responsive tab
 {{< tables.inline >}}
 {{ range $.Site.Data.breakpoints }}
 {{ if not (eq . "xs") }}
+
 <div class="bd-example">
   <div class="table-responsive{{ .abbr }}">
     <table class="table">
@@ -813,6 +809,7 @@ Use `.table-responsive{-sm|-md|-lg|-xl|-xxl}` as needed to create responsive tab
 {{< tables.inline >}}
 {{- range $.Site.Data.breakpoints -}}
 {{- if not (eq . "xs") }}
+
 <div class="table-responsive{{ .abbr }}">
   <table class="table">
     ...
