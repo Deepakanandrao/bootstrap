@@ -8,10 +8,6 @@ toc: true
 
 ## Overview
 
-We use a large block of connected links for our pagination, making links hard to miss and easily scalable—all while providing large hit areas. Pagination is built with list HTML elements so screen readers can announce the number of available links. Use a wrapping `<nav>` element to identify it as a navigation section to screen readers and other assistive technologies.
-
-In addition, as pages likely have more than one such navigation section, it's advisable to provide a descriptive `aria-label` for the `<nav>` to reflect its purpose. For example, if the pagination component is used to navigate between a set of search results, an appropriate label could be `aria-label="Search results pages"`.
-
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
 <nav aria-label="Page navigation example">
@@ -25,9 +21,7 @@ In addition, as pages likely have more than one such navigation section, it's ad
 </nav>
 </div></div>
 
-## Working with icons
-
-Looking to use an icon or symbol in place of text for some pagination links? Be sure to provide proper screen reader support with `aria` attributes.
+## With icons
 
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
@@ -52,10 +46,6 @@ Looking to use an icon or symbol in place of text for some pagination links? Be 
 
 ## Disabled and active states
 
-Pagination links are customizable for different circumstances. Use `.disabled` for links that appear un-clickable and `.active` to indicate the current page.
-
-While the `.disabled` class uses `pointer-events: none` to _try_ to disable the link functionality of `<a>`s, that CSS property is not yet standardized and doesn't account for keyboard navigation. As such, you should always add `tabindex="-1"` on disabled links and use custom JavaScript to fully disable their functionality.
-
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
 <nav aria-label="...">
@@ -75,30 +65,7 @@ While the `.disabled` class uses `pointer-events: none` to _try_ to disable the 
 </nav>
 </div></div>
 
-You can optionally swap out active or disabled anchors for `<span>`, or omit the anchor in the case of the prev/next arrows, to remove click functionality and prevent keyboard focus while retaining intended styles.
-
-<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
-
-<nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <span class="page-link">Previous</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active" aria-current="page">
-      <span class="page-link">2</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>
-</div></div>
-
 ## Sizing
-
-Fancy larger or smaller pagination? Add `.pagination-lg` or `.pagination-sm` for additional sizes.
 
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
@@ -128,7 +95,7 @@ Fancy larger or smaller pagination? Add `.pagination-lg` or `.pagination-sm` for
 
 ## Alignment
 
-Change the alignment of pagination components with [flexbox utilities]({{< docsref "/utilities/flex" >}}). For example, with `.justify-content-center`:
+For example, with `.justify-content-center`
 
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
@@ -147,7 +114,7 @@ Change the alignment of pagination components with [flexbox utilities]({{< docsr
 </nav>
 </div></div>
 
-Or with `.justify-content-end`:
+Or with `.justify-content-end`
 
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
@@ -165,21 +132,3 @@ Or with `.justify-content-end`:
   </ul>
 </nav>
 </div></div>
-
-## CSS
-
-### Variables
-
-{{< added-in "5.2.0" >}}
-
-As part of Bootstrap's evolving CSS variables approach, pagination now uses local CSS variables on `.pagination` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
-
-{{< scss-docs name="pagination-css-vars" file="scss/_pagination.scss" >}}
-
-### Sass variables
-
-{{< scss-docs name="pagination-variables" file="scss/_variables.scss" >}}
-
-### Sass mixins
-
-{{< scss-docs name="pagination-mixin" file="scss/mixins/_pagination.scss" >}}

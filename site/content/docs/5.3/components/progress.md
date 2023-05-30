@@ -6,17 +6,7 @@ group: components
 toc: true
 ---
 
-## How it works
-
-Progress components are built with two HTML elements, some CSS to set the width, and a few attributes. We don't use [the HTML5 `<progress>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress), ensuring you can stack progress bars, animate them, and place text labels over them.
-
-- We use the `.progress` as a wrapper to indicate the max value of the progress bar.
-- The `.progress` wrapper also requires a `role="progressbar"` and `aria` attributes to make it accessible, including an accessible name (using `aria-label`, `aria-labelledby`, or similar).
-- We use the inner `.progress-bar` purely for the visual bar and label.
-- The `.progress-bar` requires an inline style, utility class, or custom CSS to set its width.
-- We provide a special `.progress-stacked` class to create multiple/stacked progress bars.
-
-Put that all together, and you have the following examples.
+## Progress Bar
 
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
@@ -41,8 +31,6 @@ Put that all together, and you have the following examples.
 
 ### Width
 
-Bootstrap provides a handful of [utilities for setting width]({{< docsref "/utilities/sizing" >}}). Depending on your needs, these may help with quickly configuring the width of the `.progress-bar`.
-
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
 <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
@@ -51,8 +39,6 @@ Bootstrap provides a handful of [utilities for setting width]({{< docsref "/util
 </div></div>
 
 ### Height
-
-You only set a `height` value on the `.progress` container, so if you change that value, the inner `.progress-bar` will automatically resize accordingly.
 
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
@@ -66,16 +52,12 @@ You only set a `height` value on the `.progress` container, so if you change tha
 
 ## Labels
 
-Add labels to your progress bars by placing text within the `.progress-bar`.
-
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
 <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
   <div class="progress-bar" style="width: 25%">25%</div>
 </div>
 </div></div>
-
-Note that by default, the content inside the `.progress-bar` is controlled with `overflow: hidden`, so it doesn't bleed out of the bar. If your progress bar is shorter than its label, the content will be capped and may become unreadable. To change this behavior, you can use `.overflow-visible` from the [overflow utilities]({{< docsref "/utilities/overflow" >}}), but make sure to also define an explicit [text color]({{< docsref "/utilities/colors#colors" >}}) so the text remains readable. Be aware though that currently this approach does not take into account [color modes]({{< docsref "/customize/color-modes" >}}).
 
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
@@ -85,8 +67,6 @@ Note that by default, the content inside the `.progress-bar` is controlled with 
 </div></div>
 
 ## Backgrounds
-
-Use background utility classes to change the appearance of individual progress bars.
 
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
@@ -104,8 +84,6 @@ Use background utility classes to change the appearance of individual progress b
 </div>
 </div></div>
 
-If you're adding labels to progress bars with a custom background color, make sure to also set an appropriate [text color]({{< docsref "/utilities/colors#colors" >}}), so the labels remain readable and have sufficient contrast.
-
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
 <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -122,18 +100,7 @@ If you're adding labels to progress bars with a custom background color, make su
 </div>
 </div></div>
 
-Alternatively, you can use the new combined [color and background]({{< docsref "/helpers/color-background" >}}) helper classes.
-
-<div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
-
-<div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar text-bg-warning" style="width: 75%">75%</div>
-</div>
-</div></div>
-
 ## Multiple bars
-
-You can include multiple progress components inside a container with `.progress-stacked` to create a single stacked progress bar. Note that in this case, the styling to set the visual width of the progress bar _must_ be applied to the `.progress` elements, rather than the `.progress-bar`s.
 
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
@@ -151,8 +118,6 @@ You can include multiple progress components inside a container with `.progress-
 </div></div>
 
 ## Striped
-
-Add `.progress-bar-striped` to any `.progress-bar` to apply a stripe via CSS gradient over the progress bar's background color.
 
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
@@ -175,31 +140,9 @@ Add `.progress-bar-striped` to any `.progress-bar` to apply a stripe via CSS gra
 
 ## Animated stripes
 
-The striped gradient can also be animated. Add `.progress-bar-animated` to `.progress-bar` to animate the stripes right to left via CSS3 animations.
-
 <div class="bd-example-snippet bd-code-snippet p-1"><div class="bd-example m-1  border-0">
 
 <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
   <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
 </div>
 </div></div>
-
-## CSS
-
-### Variables
-
-{{< added-in "5.2.0" >}}
-
-As part of Bootstrap's evolving CSS variables approach, progress bars now use local CSS variables on `.progress` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
-
-{{< scss-docs name="progress-css-vars" file="scss/_progress.scss" >}}
-
-### Sass variables
-
-{{< scss-docs name="progress-variables" file="scss/_variables.scss" >}}
-
-### Keyframes
-
-Used for creating the CSS animations for `.progress-bar-animated`. Included in `scss/_progress-bar.scss`.
-
-{{< scss-docs name="progress-keyframes" file="scss/_progress.scss" >}}
